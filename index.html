@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🦇 Amazing Bat Facts</title>
+    <title>🏰 Medieval Bat Chronicles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,11 +13,18 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-            color: #ffffff;
+            font-family: 'Cinzel', serif;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #2a2a2a, #3d3d3d, #1a1a1a),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="stone" patternUnits="userSpaceOnUse" width="20" height="20"><rect width="20" height="20" fill="%23333"/><rect width="10" height="10" fill="%23444"/><rect x="10" y="10" width="10" height="10" fill="%23444"/></pattern></defs><rect width="100" height="100" fill="url(%23stone)" opacity="0.3"/></svg>');
+            background-attachment: fixed;
+            color: #f4f1e8;
             line-height: 1.6;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
         .container {
@@ -32,19 +40,23 @@
         }
 
         h1 {
+            font-family: 'UnifrakturMaguntia', serif;
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(218, 165, 32, 0.5);
+            background: linear-gradient(45deg, #daa520, #ffd700, #b8860b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: 2px;
         }
 
         .subtitle {
             font-size: 1.2rem;
-            opacity: 0.8;
+            opacity: 0.9;
             margin-bottom: 2rem;
+            color: #d4af37;
+            font-style: italic;
         }
 
         .facts-grid {
@@ -55,32 +67,79 @@
         }
 
         .fact-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
+            background: 
+                linear-gradient(45deg, rgba(139, 69, 19, 0.3), rgba(160, 82, 45, 0.2)),
+                radial-gradient(circle at top right, rgba(218, 165, 32, 0.1), transparent),
+                #2f2f2f;
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
             padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid rgba(218, 165, 32, 0.3);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(218, 165, 32, 0.1);
+            transition: all 0.4s ease;
             animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fact-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #daa520, #8b4513, #daa520, #8b4513);
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite alternate;
+        }
+
+        .fact-card::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #ff6600, #ff8c00, #ffa500);
+            border-radius: 50%;
+            opacity: 0.7;
+            box-shadow: 0 0 15px #ff6600;
+            animation: torchFlicker 2s ease-in-out infinite alternate;
         }
 
         .fact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(218, 165, 32, 0.3);
+        }
+
+        .fact-card:hover::after {
+            box-shadow: 0 0 25px #ff6600;
+            animation: torchFlicker 0.5s ease-in-out infinite alternate;
         }
 
         .fact-number {
             font-size: 2rem;
             font-weight: bold;
-            color: #ff6b6b;
+            color: #daa520;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-family: 'UnifrakturMaguntia', serif;
         }
 
         .fact-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: #4ecdc4;
+            color: #8a2be2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
         }
 
         .fact-description {
@@ -92,25 +151,49 @@
         .hero-section {
             text-align: center;
             margin-bottom: 4rem;
-            padding: 3rem 0;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            padding: 4rem 2rem;
+            background: 
+                radial-gradient(ellipse at center, rgba(218, 165, 32, 0.1), transparent),
+                linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(101, 67, 33, 0.2));
+            border-radius: 30px;
             backdrop-filter: blur(10px);
+            border: 2px solid rgba(218, 165, 32, 0.4);
+            box-shadow: 
+                0 0 50px rgba(218, 165, 32, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,50 Q30,30 40,50 T60,50 T80,50" stroke="%23daa520" stroke-width="0.5" fill="none" opacity="0.3"/></svg>');
+            pointer-events: none;
         }
 
         .bat-emoji {
             font-size: 4rem;
-            animation: bounce 2s infinite;
+            animation: batFly 4s ease-in-out infinite;
             display: inline-block;
             margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.7));
         }
 
         .footer {
             text-align: center;
             margin-top: 4rem;
             padding: 2rem;
-            opacity: 0.7;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            border-top: 2px solid rgba(218, 165, 32, 0.3);
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(101, 67, 33, 0.1));
+            border-radius: 20px 20px 0 0;
+            color: #d4af37;
+            font-style: italic;
         }
 
         @keyframes fadeInDown {
@@ -135,15 +218,93 @@
             }
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
+        @keyframes batFly {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
             }
-            40% {
-                transform: translateY(-10px);
+            25% {
+                transform: translateY(-10px) rotate(-5deg);
             }
-            60% {
-                transform: translateY(-5px);
+            50% {
+                transform: translateY(-15px) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-5px) rotate(5deg);
+            }
+        }
+
+        @keyframes torchFlicker {
+            0% {
+                box-shadow: 0 0 15px #ff6600;
+                opacity: 0.7;
+            }
+            100% {
+                box-shadow: 0 0 25px #ff6600, 0 0 35px #ff8c00;
+                opacity: 0.9;
+            }
+        }
+
+        @keyframes borderGlow {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes floatingBat {
+            0% {
+                transform: translateX(-100px) translateY(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px)) translateY(-20px);
+                opacity: 0;
+            }
+        }
+
+        /* Flying bats */
+        .flying-bat {
+            position: fixed;
+            font-size: 1.5rem;
+            color: #8a2be2;
+            z-index: 10;
+            pointer-events: none;
+            animation: floatingBat 15s linear infinite;
+            filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.8));
+        }
+
+        .flying-bat:nth-child(1) { top: 15%; animation-delay: 0s; }
+        .flying-bat:nth-child(2) { top: 35%; animation-delay: 5s; }
+        .flying-bat:nth-child(3) { top: 55%; animation-delay: 10s; }
+
+        /* Magical particles */
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #daa520;
+            border-radius: 50%;
+            z-index: 5;
+            pointer-events: none;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
@@ -177,12 +338,16 @@
     </style>
 </head>
 <body>
+    <div class="flying-bat">🦇</div>
+    <div class="flying-bat">🦇</div>
+    <div class="flying-bat">🦇</div>
+    
     <div class="container">
         <header>
             <div class="hero-section">
                 <div class="bat-emoji">🦇</div>
-                <h1>Amazing Bat Facts</h1>
-                <p class="subtitle">Discover the fascinating world of these incredible flying mammals</p>
+                <h1>Medieval Bat Chronicles</h1>
+                <p class="subtitle">Ancient Wisdom from the Castle's Winged Guardians</p>
             </div>
         </header>
 
@@ -255,9 +420,33 @@
         </main>
 
         <footer class="footer">
-            <p>🦇 Learn more about these amazing creatures and help protect their habitats! 🦇</p>
-            <p>Created with ❤️ for bat conservation awareness</p>
+            <p>🏰 Ancient wisdom preserved in the castle's archives 🦇</p>
+            <p>Scripted with quill and ink for the enlightenment of all</p>
         </footer>
     </div>
+
+    <script>
+        // Create magical particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = Math.random() * 100 + 'vh';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 3000);
+        }
+        
+        // Create particles periodically
+        setInterval(createParticle, 800);
+        
+        // Initial particles
+        for(let i = 0; i < 10; i++) {
+            setTimeout(createParticle, i * 200);
+        }
+    </script>
 </body>
 </html>
