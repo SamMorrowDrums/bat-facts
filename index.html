@@ -80,9 +80,10 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.1),
                 0 0 20px rgba(218, 165, 32, 0.1);
             transition: all 0.4s ease;
-            animation: fadeInUp 0.8s ease-out;
+            animation: scrollUnfurl 0.8s ease-out forwards;
             position: relative;
             overflow: hidden;
+            transform-origin: top center;
         }
 
         .fact-card::before {
@@ -308,6 +309,79 @@
             }
         }
 
+        /* Mist/Fog effect */
+        .mist {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to top, rgba(105, 105, 105, 0.3), transparent);
+            z-index: 1;
+            pointer-events: none;
+            animation: mistFlow 10s ease-in-out infinite;
+        }
+
+        @keyframes mistFlow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translateX(0px);
+            }
+            50% {
+                opacity: 0.1;
+                transform: translateX(20px);
+            }
+        }
+
+        /* Scroll unfurling animation */
+        @keyframes scrollUnfurl {
+            0% {
+                transform: rotateX(-90deg) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: rotateX(-45deg) scale(0.8);
+                opacity: 0.7;
+            }
+            100% {
+                transform: rotateX(0deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Candle effects */
+        .candle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 8px;
+            height: 20px;
+            background: linear-gradient(to bottom, #8b4513, #a0522d);
+            border-radius: 4px;
+        }
+
+        .candle::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #ff6600, #ff8c00);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: candleFlame 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes candleFlame {
+            0% {
+                transform: translateX(-50%) scale(1) rotate(-2deg);
+            }
+            100% {
+                transform: translateX(-50%) scale(1.1) rotate(2deg);
+            }
+        }
+
         .fact-card:nth-child(1) { animation-delay: 0.1s; }
         .fact-card:nth-child(2) { animation-delay: 0.2s; }
         .fact-card:nth-child(3) { animation-delay: 0.3s; }
@@ -341,10 +415,12 @@
     <div class="flying-bat">🦇</div>
     <div class="flying-bat">🦇</div>
     <div class="flying-bat">🦇</div>
+    <div class="mist"></div>
     
     <div class="container">
         <header>
             <div class="hero-section">
+                <div class="candle"></div>
                 <div class="bat-emoji">🦇</div>
                 <h1>Medieval Bat Chronicles</h1>
                 <p class="subtitle">Ancient Wisdom from the Castle's Winged Guardians</p>
@@ -354,6 +430,7 @@
         <main>
             <div class="facts-grid">
                 <div class="fact-card">
+                    <div class="candle"></div>
                     <div class="fact-number">01</div>
                     <h2 class="fact-title">The Only Flying Mammals</h2>
                     <p class="fact-description">
@@ -370,6 +447,7 @@
                 </div>
 
                 <div class="fact-card">
+                    <div class="candle"></div>
                     <div class="fact-number">03</div>
                     <h2 class="fact-title">Incredible Diversity</h2>
                     <p class="fact-description">
@@ -386,6 +464,7 @@
                 </div>
 
                 <div class="fact-card">
+                    <div class="candle"></div>
                     <div class="fact-number">05</div>
                     <h2 class="fact-title">Pollination Heroes</h2>
                     <p class="fact-description">
@@ -402,6 +481,7 @@
                 </div>
 
                 <div class="fact-card">
+                    <div class="candle"></div>
                     <div class="fact-number">07</div>
                     <h2 class="fact-title">Hibernation and Migration</h2>
                     <p class="fact-description">
