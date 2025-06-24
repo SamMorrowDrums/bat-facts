@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦇 Amazing Bat Facts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .fact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .fact-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        .fact-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .fact-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .bat-emoji {
+            font-size: 4rem;
+            animation: bounce 2s infinite;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            opacity: 0.7;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .fact-card:nth-child(1) { animation-delay: 0.1s; }
+        .fact-card:nth-child(2) { animation-delay: 0.2s; }
+        .fact-card:nth-child(3) { animation-delay: 0.3s; }
+        .fact-card:nth-child(4) { animation-delay: 0.4s; }
+        .fact-card:nth-child(5) { animation-delay: 0.5s; }
+        .fact-card:nth-child(6) { animation-delay: 0.6s; }
+        .fact-card:nth-child(7) { animation-delay: 0.7s; }
+        .fact-card:nth-child(8) { animation-delay: 0.8s; }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .facts-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .fact-card {
+                padding: 1.5rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="hero-section">
+                <div class="bat-emoji">🦇</div>
+                <h1>Amazing Bat Facts</h1>
+                <p class="subtitle">Discover the fascinating world of these incredible flying mammals</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-number">01</div>
+                    <h2 class="fact-title">The Only Flying Mammals</h2>
+                    <p class="fact-description">
+                        Bats are the only mammals capable of true, sustained flight. Their wings are actually modified hands with stretched skin membranes between elongated finger bones.
+                    </p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-number">02</div>
+                    <h2 class="fact-title">Echolocation Masters</h2>
+                    <p class="fact-description">
+                        Many bats use echolocation to navigate and hunt in complete darkness. They emit high-frequency sounds and interpret the echoes to create a detailed "sound map" of their environment.
+                    </p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-number">03</div>
+                    <h2 class="fact-title">Incredible Diversity</h2>
+                    <p class="fact-description">
+                        There are over 1,400 species of bats worldwide, making up about 20% of all mammal species. They range from the tiny bumblebee bat to the large flying foxes with 6-foot wingspans.
+                    </p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-number">04</div>
+                    <h2 class="fact-title">Vampire Bats Are Real</h2>
+                    <p class="fact-description">
+                        Only three species of bats actually drink blood, and they prefer livestock to humans. Their saliva contains an anticoagulant that scientists study for medical applications.
+                    </p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-number">05</div>
+                    <h2 class="fact-title">Pollination Heroes</h2>
+                    <p class="fact-description">
+                        Many bats are crucial pollinators for plants like agave, bananas, and mangoes. Over 500 plant species depend on bats for pollination, including some that produce tequila!
+                    </p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-number">06</div>
+                    <h2 class="fact-title">Pest Control Champions</h2>
+                    <p class="fact-description">
+                        A single bat can eat up to 1,000 mosquitoes per hour! Bats consume enormous quantities of insects, providing billions of dollars worth of natural pest control for agriculture.
+                    </p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-number">07</div>
+                    <h2 class="fact-title">Hibernation and Migration</h2>
+                    <p class="fact-description">
+                        Some bats hibernate for up to 6 months, while others migrate thousands of miles. During hibernation, their heart rate can drop from 400 beats per minute to just 25.
+                    </p>
+                </div>
+
+                <div class="fact-card">
+                    <div class="fact-number">08</div>
+                    <h2 class="fact-title">Social Creatures</h2>
+                    <p class="fact-description">
+                        Bats are highly social animals. Some species form colonies of millions of individuals. They share information about food sources and even "babysit" each other's young.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>🦇 Learn more about these amazing creatures and help protect their habitats! 🦇</p>
+            <p>Created with ❤️ for bat conservation awareness</p>
+        </footer>
+    </div>
+</body>
+</html>
