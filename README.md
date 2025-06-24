@@ -1,13 +1,13 @@
-# 🦇 Bat Facts
+# 🦇 Steampunk Disco Bat Facts
 
-A beautiful static website showcasing fascinating facts about bats - nature's incredible flying mammals!
+A groovy static website showcasing fascinating facts about bats with a unique steampunk disco theme - where Victorian elegance meets disco flair!
 
 ## 🌟 Features
 
-- **Interactive Design**: Modern, responsive design with smooth animations
+- **Steampunk Disco Design**: Unique theme combining Victorian mechanical aesthetics with flashy disco elements
 - **Educational Content**: 8 fascinating facts about bats covering their biology, behavior, and ecological importance
 - **Mobile Friendly**: Fully responsive design that works on all devices
-- **No Dependencies**: Pure HTML, CSS, and animations - no JavaScript frameworks needed
+- **Pure CSS Animations**: Rotating gears, disco ball effects, and neon pulsing - no JavaScript frameworks needed
 
 ## 🦇 What You'll Learn
 
@@ -32,11 +32,12 @@ Or view it directly on GitHub: [index.html](./index.html)
 
 ## 🎨 Design Features
 
-- **Gradient Backgrounds**: Beautiful night-sky inspired gradients
-- **Glass Morphism**: Modern frosted glass effect on cards
-- **Smooth Animations**: Fade-in and hover effects
-- **Responsive Grid**: Adaptive layout for different screen sizes
-- **Accessibility**: Proper semantic HTML and color contrast
+- **Steampunk Color Scheme**: Brass, copper, deep purples, and neon gold accents
+- **Ornate Typography**: Victorian Cinzel fonts mixed with futuristic Orbitron and disco Metal Mania
+- **Animated Brass Gears**: CSS-only rotating gears and cogs with disco ball reflections
+- **Steam-Powered Navigation**: Brass plaque cards with glowing neon hover effects
+- **Disco Animations**: Smooth transitions, gear rotations, and pulsing neon accents
+- **Responsive Grid**: Adaptive layout maintaining steampunk aesthetics across all devices
 
 ## 🌍 Conservation Message
 
@@ -56,4 +57,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-Made with ❤️ for bat conservation awareness
+Made with ❤️ and brass gears for groovy bat conservation awareness

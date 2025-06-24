@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🦇 Amazing Bat Facts</title>
+    <title>🦇 Steampunk Disco Bat Facts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Orbitron:wght@400;700;900&family=Metal+Mania&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --brass-dark: #8B6914;
+            --brass-light: #CD853F;
+            --copper: #B87333;
+            --deep-purple: #301934;
+            --deep-purple-light: #4B0082;
+            --neon-gold: #FFD700;
+            --neon-orange: #FFA500;
+            --steam-gray: #2C2C2C;
+            --steam-silver: #C0C0C0;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -12,11 +24,32 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
-            color: #ffffff;
+            font-family: 'Cinzel', serif;
+            background: 
+                radial-gradient(circle at 20% 30%, var(--neon-gold) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, var(--neon-orange) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, var(--deep-purple-light) 0%, transparent 70%),
+                linear-gradient(135deg, var(--deep-purple), var(--steam-gray), var(--brass-dark));
+            color: var(--steam-silver);
             line-height: 1.6;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 165, 0, 0.1) 0%, transparent 50%);
+            animation: discoGlow 4s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
@@ -32,19 +65,49 @@
         }
 
         h1 {
+            font-family: 'Metal Mania', cursive;
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            text-shadow: 
+                0 0 20px var(--neon-gold),
+                0 0 40px var(--neon-orange),
+                3px 3px 0px var(--brass-dark);
+            background: linear-gradient(45deg, var(--neon-gold), var(--neon-orange), var(--brass-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: discoTitle 3s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        h1::before {
+            content: '⚙️';
+            position: absolute;
+            left: -80px;
+            top: 10px;
+            font-size: 2rem;
+            animation: gearSpin 4s linear infinite;
+            color: var(--brass-light);
+        }
+
+        h1::after {
+            content: '⚙️';
+            position: absolute;
+            right: -80px;
+            top: 10px;
+            font-size: 2rem;
+            animation: gearSpin 4s linear infinite reverse;
+            color: var(--copper);
         }
 
         .subtitle {
+            font-family: 'Orbitron', monospace;
             font-size: 1.2rem;
-            opacity: 0.8;
+            font-weight: 400;
+            color: var(--neon-gold);
             margin-bottom: 2rem;
+            text-shadow: 0 0 10px var(--neon-gold);
+            animation: neonPulse 2s ease-in-out infinite alternate;
         }
 
         .facts-grid {
@@ -55,62 +118,131 @@
         }
 
         .fact-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
+            background: linear-gradient(145deg, var(--brass-dark), var(--brass-light), var(--copper));
+            border: 3px solid var(--brass-light);
+            border-radius: 20px;
             padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            transition: all 0.3s ease;
             animation: fadeInUp 0.8s ease-out;
+            box-shadow: 
+                inset 0 2px 10px rgba(255, 215, 0, 0.3),
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .fact-card::before {
+            content: '⚙️';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            font-size: 2rem;
+            color: var(--copper);
+            animation: gearSpin 6s linear infinite;
+            text-shadow: 0 0 10px var(--neon-gold);
+        }
+
+        .fact-card::after {
+            content: '⚙️';
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            font-size: 1.5rem;
+            color: var(--brass-light);
+            animation: gearSpin 4s linear infinite reverse;
+            text-shadow: 0 0 10px var(--neon-orange);
         }
 
         .fact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                inset 0 2px 15px rgba(255, 215, 0, 0.5),
+                0 20px 50px rgba(0, 0, 0, 0.7),
+                0 0 40px var(--neon-gold);
+            border-color: var(--neon-gold);
+        }
+
+        .fact-card:hover::before,
+        .fact-card:hover::after {
+            animation-duration: 1s;
+            text-shadow: 0 0 20px var(--neon-gold);
         }
 
         .fact-number {
+            font-family: 'Orbitron', monospace;
             font-size: 2rem;
-            font-weight: bold;
-            color: #ff6b6b;
+            font-weight: 900;
+            color: var(--neon-gold);
+            text-shadow: 0 0 15px var(--neon-gold);
             margin-bottom: 1rem;
+            animation: neonPulse 3s ease-in-out infinite alternate;
         }
 
         .fact-title {
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            color: #4ecdc4;
+            color: var(--steam-silver);
+            text-shadow: 1px 1px 2px var(--brass-dark);
         }
 
         .fact-description {
+            font-family: 'Cinzel', serif;
             font-size: 1rem;
-            opacity: 0.9;
+            color: var(--steam-silver);
             line-height: 1.7;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
         }
 
         .hero-section {
             text-align: center;
             margin-bottom: 4rem;
             padding: 3rem 0;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, 
+                rgba(139, 105, 20, 0.3), 
+                rgba(205, 133, 63, 0.2), 
+                rgba(75, 0, 130, 0.3));
+            border: 2px solid var(--brass-light);
+            border-radius: 30px;
+            position: relative;
+            box-shadow: 
+                inset 0 2px 20px rgba(255, 215, 0, 0.2),
+                0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, var(--neon-gold) 30%, transparent 70%);
+            border-radius: 50%;
+            animation: discoBall 4s ease-in-out infinite;
         }
 
         .bat-emoji {
             font-size: 4rem;
-            animation: bounce 2s infinite;
+            animation: discoSpin 3s ease-in-out infinite;
             display: inline-block;
             margin-bottom: 1rem;
+            text-shadow: 0 0 20px var(--neon-gold);
         }
 
         .footer {
             text-align: center;
             margin-top: 4rem;
             padding: 2rem;
-            opacity: 0.7;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'Orbitron', monospace;
+            color: var(--brass-light);
+            border-top: 2px solid var(--brass-light);
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(205, 133, 63, 0.1), 
+                transparent);
         }
 
         @keyframes fadeInDown {
@@ -135,15 +267,69 @@
             }
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
+        @keyframes discoGlow {
+            0% { opacity: 0.5; }
+            100% { opacity: 0.8; }
+        }
+
+        @keyframes discoTitle {
+            0% { 
+                text-shadow: 
+                    0 0 20px var(--neon-gold),
+                    0 0 40px var(--neon-orange),
+                    3px 3px 0px var(--brass-dark);
             }
-            40% {
-                transform: translateY(-10px);
+            100% { 
+                text-shadow: 
+                    0 0 30px var(--neon-orange),
+                    0 0 60px var(--neon-gold),
+                    3px 3px 0px var(--brass-dark);
             }
-            60% {
-                transform: translateY(-5px);
+        }
+
+        @keyframes gearSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes neonPulse {
+            0% { 
+                text-shadow: 0 0 10px var(--neon-gold);
+                opacity: 0.8;
+            }
+            100% { 
+                text-shadow: 0 0 25px var(--neon-gold), 0 0 35px var(--neon-orange);
+                opacity: 1;
+            }
+        }
+
+        @keyframes discoSpin {
+            0% { 
+                transform: rotate(-5deg) scale(1);
+                text-shadow: 0 0 20px var(--neon-gold);
+            }
+            50% { 
+                transform: rotate(5deg) scale(1.1);
+                text-shadow: 0 0 30px var(--neon-orange);
+            }
+            100% { 
+                transform: rotate(-5deg) scale(1);
+                text-shadow: 0 0 20px var(--neon-gold);
+            }
+        }
+
+        @keyframes discoBall {
+            0% { 
+                box-shadow: 0 0 20px var(--neon-gold);
+                transform: translateX(-50%) scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px var(--neon-orange);
+                transform: translateX(-50%) scale(1.2);
+            }
+            100% { 
+                box-shadow: 0 0 20px var(--neon-gold);
+                transform: translateX(-50%) scale(1);
             }
         }
 
@@ -161,6 +347,11 @@
                 font-size: 2.5rem;
             }
             
+            h1::before,
+            h1::after {
+                display: none;
+            }
+            
             .facts-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -170,8 +361,24 @@
                 padding: 1.5rem;
             }
             
+            .fact-card::before {
+                top: -10px;
+                left: -10px;
+                font-size: 1.5rem;
+            }
+            
+            .fact-card::after {
+                bottom: -10px;
+                right: -10px;
+                font-size: 1.2rem;
+            }
+            
             .container {
                 padding: 15px;
+            }
+            
+            .hero-section {
+                padding: 2rem 1rem;
             }
         }
     </style>
@@ -181,8 +388,8 @@
         <header>
             <div class="hero-section">
                 <div class="bat-emoji">🦇</div>
-                <h1>Amazing Bat Facts</h1>
-                <p class="subtitle">Discover the fascinating world of these incredible flying mammals</p>
+                <h1>Steampunk Disco Bat Facts</h1>
+                <p class="subtitle">Where Victorian elegance meets groovy bat knowledge!</p>
             </div>
         </header>
 
@@ -255,8 +462,8 @@
         </main>
 
         <footer class="footer">
-            <p>🦇 Learn more about these amazing creatures and help protect their habitats! 🦇</p>
-            <p>Created with ❤️ for bat conservation awareness</p>
+            <p>🦇 ⚙️ Groove into bat conservation with steam-powered style! ⚙️ 🦇</p>
+            <p>Crafted with ❤️ and brass gears for disco bat awareness</p>
         </footer>
     </div>
 </body>
