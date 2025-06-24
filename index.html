@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🦇 Amazing Bat Facts</title>
+    <title>🦇 Aquatic Bat Facts - Atlantis</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,69 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            background: linear-gradient(180deg, #0a2463 0%, #1e3a5f 20%, #003d5b 40%, #006494 60%, #0582ca 80%, #4ecdc4 100%);
+            background-attachment: fixed;
             color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Underwater bubble animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px),
+                radial-gradient(circle at 60% 90%, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+                radial-gradient(circle at 90% 60%, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+            background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px, 180px 180px;
+            animation: bubbleFloat 20s infinite linear;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Kelp swaying animation */
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: 
+                linear-gradient(to top, rgba(34, 139, 34, 0.6) 0%, transparent 70%),
+                linear-gradient(85deg, rgba(46, 125, 50, 0.4) 0%, transparent 100%),
+                linear-gradient(95deg, rgba(67, 160, 71, 0.3) 0%, transparent 100%);
+            animation: kelpSway 6s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes bubbleFloat {
+            0% { transform: translateY(100vh) scale(0); }
+            10% { transform: translateY(90vh) scale(1); }
+            100% { transform: translateY(-10vh) scale(0); }
+        }
+
+        @keyframes kelpSway {
+            0% { transform: skewX(-2deg); }
+            100% { transform: skewX(2deg); }
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         header {
@@ -34,17 +87,28 @@
         h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            text-shadow: 0 0 20px rgba(78, 205, 196, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #4ecdc4, #006494, #0582ca, #4ecdc4);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .subtitle {
             font-size: 1.2rem;
-            opacity: 0.8;
+            opacity: 0.9;
             margin-bottom: 2rem;
+            color: #b8f2e6;
+            text-shadow: 0 0 10px rgba(184, 242, 230, 0.4);
+            position: relative;
+            z-index: 1;
         }
 
         .facts-grid {
@@ -52,67 +116,184 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
+            animation: waterCurrent 8s ease-in-out infinite;
+            position: relative;
+        }
+
+        /* Marine life decorations */
+        .facts-grid::before {
+            content: '🐠 🐟 🦑 🐙';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: fishSwim 15s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes fishSwim {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
         }
 
         .fact-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
+            background: linear-gradient(145deg, rgba(78, 205, 196, 0.15), rgba(0, 100, 148, 0.2));
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
             padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeInUp 0.8s ease-out;
+            border: 2px solid rgba(78, 205, 196, 0.4);
+            box-shadow: 
+                0 8px 32px rgba(0, 100, 148, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 20px rgba(78, 205, 196, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out, gentleFloat 4s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fact-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .fact-card::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 30%, transparent 40%);
+            border-radius: 50%;
+            animation: bubbleRise 2s ease-in-out infinite;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.1); }
+        }
+
+        @keyframes bubbleRise {
+            0% { transform: translateY(0px) scale(1); opacity: 0.7; }
+            100% { transform: translateY(-30px) scale(0.3); opacity: 0; }
         }
 
         .fact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0, 100, 148, 0.4),
+                0 0 30px rgba(78, 205, 196, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border-color: rgba(78, 205, 196, 0.8);
+        }
+
+        .fact-card:hover::before {
+            animation: pulse 1s ease-in-out infinite;
         }
 
         .fact-number {
             font-size: 2rem;
             font-weight: bold;
-            color: #ff6b6b;
+            color: #4ecdc4;
             margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(78, 205, 196, 0.8);
+            position: relative;
+            z-index: 1;
         }
 
         .fact-title {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: #4ecdc4;
+            color: #b8f2e6;
+            text-shadow: 0 0 8px rgba(184, 242, 230, 0.6);
+            position: relative;
+            z-index: 1;
         }
 
         .fact-description {
             font-size: 1rem;
-            opacity: 0.9;
+            opacity: 0.95;
             line-height: 1.7;
+            color: #e1f5fe;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-section {
             text-align: center;
             margin-bottom: 4rem;
             padding: 3rem 0;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            background: linear-gradient(145deg, rgba(78, 205, 196, 0.1), rgba(0, 100, 148, 0.15));
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 100, 148, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
+            animation: glow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.6; }
         }
 
         .bat-emoji {
             font-size: 4rem;
-            animation: bounce 2s infinite;
+            animation: swim 3s ease-in-out infinite;
             display: inline-block;
             margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 0 15px rgba(78, 205, 196, 0.8));
+        }
+
+        @keyframes swim {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(-5px) rotate(-1deg); }
+            75% { transform: translateY(-8px) rotate(2deg); }
         }
 
         .footer {
             text-align: center;
             margin-top: 4rem;
             padding: 2rem;
-            opacity: 0.7;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            border-top: 1px solid rgba(78, 205, 196, 0.3);
+            background: linear-gradient(145deg, rgba(78, 205, 196, 0.05), rgba(0, 100, 148, 0.1));
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
 
+        /* Remove the old bounce animation */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -135,16 +316,15 @@
             }
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
+        /* Add water current effects */
+        @keyframes waterCurrent {
+            0%, 100% { transform: translateX(0px); }
+            33% { transform: translateX(2px); }
+            66% { transform: translateX(-2px); }
+        }
+
+        .facts-grid {
+            animation: waterCurrent 8s ease-in-out infinite;
         }
 
         .fact-card:nth-child(1) { animation-delay: 0.1s; }
@@ -181,8 +361,8 @@
         <header>
             <div class="hero-section">
                 <div class="bat-emoji">🦇</div>
-                <h1>Amazing Bat Facts</h1>
-                <p class="subtitle">Discover the fascinating world of these incredible flying mammals</p>
+                <h1>Aquatic Bat Facts</h1>
+                <p class="subtitle">Discover the mysterious underwater world of Atlantis's aquatic bats</p>
             </div>
         </header>
 
@@ -190,73 +370,73 @@
             <div class="facts-grid">
                 <div class="fact-card">
                     <div class="fact-number">01</div>
-                    <h2 class="fact-title">The Only Flying Mammals</h2>
+                    <h2 class="fact-title">Masters of Water and Air</h2>
                     <p class="fact-description">
-                        Bats are the only mammals capable of true, sustained flight. Their wings are actually modified hands with stretched skin membranes between elongated finger bones.
+                        In the depths of Atlantis, aquatic bats evolved to master both aerial and underwater flight. Their modified wing membranes allow them to glide through water currents with incredible grace, using echolocation to navigate the ocean's mysteries.
                     </p>
                 </div>
 
                 <div class="fact-card">
                     <div class="fact-number">02</div>
-                    <h2 class="fact-title">Echolocation Masters</h2>
+                    <h2 class="fact-title">Sonar of the Deep</h2>
                     <p class="fact-description">
-                        Many bats use echolocation to navigate and hunt in complete darkness. They emit high-frequency sounds and interpret the echoes to create a detailed "sound map" of their environment.
+                        Atlantean bats perfected underwater echolocation, using bio-sonic pulses that travel through water to map coral reefs, sunken treasures, and hidden sea caves. Their calls create bioluminescent ripples that light up the ocean depths.
                     </p>
                 </div>
 
                 <div class="fact-card">
                     <div class="fact-number">03</div>
-                    <h2 class="fact-title">Incredible Diversity</h2>
+                    <h2 class="fact-title">Guardians of the Seven Seas</h2>
                     <p class="fact-description">
-                        There are over 1,400 species of bats worldwide, making up about 20% of all mammal species. They range from the tiny bumblebee bat to the large flying foxes with 6-foot wingspans.
+                        Over 200 species of aquatic bats patrol different ocean zones in Atlantis, from tiny pearl-diving bats in shallow lagoons to massive deep-sea leviathan bats that guard underwater volcanoes with wingspans reaching 20 feet.
                     </p>
                 </div>
 
                 <div class="fact-card">
                     <div class="fact-number">04</div>
-                    <h2 class="fact-title">Vampire Bats Are Real</h2>
+                    <h2 class="fact-title">Vampire Rays of the Deep</h2>
                     <p class="fact-description">
-                        Only three species of bats actually drink blood, and they prefer livestock to humans. Their saliva contains an anticoagulant that scientists study for medical applications.
+                        Deep-sea vampire bats evolved to feed on the life force of bioluminescent creatures, their bite creating stunning light displays. These gentle giants are more like underwater butterflies, sustaining themselves on plankton and sea jellies.
                     </p>
                 </div>
 
                 <div class="fact-card">
                     <div class="fact-number">05</div>
-                    <h2 class="fact-title">Pollination Heroes</h2>
+                    <h2 class="fact-title">Coral Reef Architects</h2>
                     <p class="fact-description">
-                        Many bats are crucial pollinators for plants like agave, bananas, and mangoes. Over 500 plant species depend on bats for pollination, including some that produce tequila!
+                        Atlantean bats are master gardeners of the sea, pollinating underwater kelp forests and coral gardens. They carry glowing pollen in specialized pouches, creating trails of bioluminescent beauty as they work to maintain ocean biodiversity.
                     </p>
                 </div>
 
                 <div class="fact-card">
                     <div class="fact-number">06</div>
-                    <h2 class="fact-title">Pest Control Champions</h2>
+                    <h2 class="fact-title">Ocean's Pest Control Fleet</h2>
                     <p class="fact-description">
-                        A single bat can eat up to 1,000 mosquitoes per hour! Bats consume enormous quantities of insects, providing billions of dollars worth of natural pest control for agriculture.
+                        A single aquatic bat can consume over 2,000 sea mosquitoes and jellyfish larvae per hour! These underwater guardians keep the ocean's ecosystem balanced, protecting fish populations and maintaining the health of Atlantis's waters.
                     </p>
                 </div>
 
                 <div class="fact-card">
                     <div class="fact-number">07</div>
-                    <h2 class="fact-title">Hibernation and Migration</h2>
+                    <h2 class="fact-title">Tidal Sleep and Ocean Currents</h2>
                     <p class="fact-description">
-                        Some bats hibernate for up to 6 months, while others migrate thousands of miles. During hibernation, their heart rate can drop from 400 beats per minute to just 25.
+                        Aquatic bats enter deep-sea hibernation in underwater caves, their metabolism slowing with the tides. During migration, they ride ocean currents for thousands of miles, their heartbeat synchronizing with the rhythm of the waves.
                     </p>
                 </div>
 
                 <div class="fact-card">
                     <div class="fact-number">08</div>
-                    <h2 class="fact-title">Social Creatures</h2>
+                    <h2 class="fact-title">Underwater Colonies</h2>
                     <p class="fact-description">
-                        Bats are highly social animals. Some species form colonies of millions of individuals. They share information about food sources and even "babysit" each other's young.
+                        Atlantean bats form magnificent underwater cities in sea caves, with millions of individuals creating bioluminescent metropolises. They communicate through water-song and create nursery reefs where they raise their young among protective coral formations.
                     </p>
                 </div>
             </div>
         </main>
 
         <footer class="footer">
-            <p>🦇 Learn more about these amazing creatures and help protect their habitats! 🦇</p>
-            <p>Created with ❤️ for bat conservation awareness</p>
+            <p>🦇 Dive deeper into the mysteries of Atlantis and help protect our aquatic bat sanctuaries! 🦇</p>
+            <p>Created with ❤️ for oceanic conservation awareness</p>
         </footer>
     </div>
 </body>
